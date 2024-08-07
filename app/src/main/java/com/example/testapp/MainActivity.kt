@@ -27,6 +27,8 @@ class MainActivity : ComponentActivity() {
                     MyApp(
                         name = "Dear User",
                         modifier = Modifier.padding(innerPadding)
+                            .padding(innerPadding)
+                            .background(Color(0xFFADD8E6))
 
                     )
                 }
@@ -63,12 +65,24 @@ fun MyApp(name: String, modifier: Modifier = Modifier) {
             text = "Esperamos que te diviertas mucho",
             fontSize = 20.sp
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(40.dp))
         Text(
             text = "Para continuar por favor presiona el botón de abajo",
-            fontSize = 16.sp
+            fontSize = 10.sp ,
+            color = Color(0xFFD32F2F)
         )
         Spacer(modifier = Modifier.height(32.dp))
+
+        // Botón
+        Button(onClick = { showMessage = !showMessage }) {
+            Text(text = "Iniciar")
+        }
+
+        // Acción al presionar el botón
+        if (showMessage) {
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(text = "Inicializando Juego!", fontSize = 18.sp, color = MaterialTheme.colorScheme.primary)
+        }
 
 
         // Greeting
@@ -82,7 +96,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier,
         fontSize = 24.sp,
-        fontWeight =  FontWeight.Bold
+        fontWeight =  FontWeight.Bold,
+        color = Color(0xFF1E88E5)
     )
 }
 
